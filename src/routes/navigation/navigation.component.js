@@ -10,11 +10,14 @@ const Navigation = () => {
     <Fragment>
       <div className='navigation'>
         <Link className='logo-container' to='/'>
-          <CrwnLogo classname='logo' />
+          <CrwnLogo className='logo' />
         </Link>
         <div className='nav-links-container'>
-          <Link classname='nav-link' to='/shop'>
+          <Link className='nav-link' to='/shop'>
             SHOP
+          </Link>
+          <Link className='nav-link' to='/sign-in'>
+            SIGN IN
           </Link>
         </div>
       </div>
