@@ -36,9 +36,9 @@ const Navigation = () => {
               SIGN IN
             </Link>
           )}
-          {currentUser && (currentUser.email || currentUser.user.email) && (
+          {currentUser && currentUser.email && (
             <span className='nav-link'>
-              {currentUser.email || currentUser.user.email}
+              {currentUser.email}
             </span>
           )}
           <CartIcon />
