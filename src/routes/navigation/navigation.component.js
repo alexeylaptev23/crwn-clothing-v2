@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 
 import CartIcon from '../../components/cart-icon/cart-icon.component';
@@ -12,6 +12,8 @@ import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 import { selectCurrentUser } from '../../store/user/user.selector';
 import { selectIsCartOpen } from '../../store/cart/cart.selector';
 
+import { signOutStart } from '../../store/user/user.action';
+
 import {
   NavigationContainer,
   LogoContainer,
@@ -20,9 +22,13 @@ import {
 } from './navigation.styles';
 
 const Navigation = () => {
+  const dispatch = useDispatch();
+
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen)
 
+  const signOutUser = () => dispatch(signOutStart());
+  
   return (
     <Fragment>
       <NavigationContainer>
@@ -42,7 +48,7 @@ const Navigation = () => {
               SIGN IN
             </NavLink>
           )}
-          {currentUser && currentUser.email && (
+          {(currentUser && currentUser.email) && (
             <NavLink as='span' className='nav-link'>
               {currentUser.email}
             </NavLink>
