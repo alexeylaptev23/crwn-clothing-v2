@@ -53,6 +53,11 @@ const Navigation = () => {
               {currentUser.email}
             </NavLink>
           )}
+          {(currentUser && currentUser.displayName) && (
+            <NavLink as='span' className='nav-link'>
+              {currentUser.displayName}
+            </NavLink>
+          )}
           <CartIcon />
         </NavLinks>
         {isCartOpen && <CartDropdown />}
